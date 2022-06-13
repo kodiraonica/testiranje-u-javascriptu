@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@playwright/test": "^1.22.2",
+    "jsdom": "^19.0.0",
+    "live-server": "^1.2.2",
+    "vitest": "^0.14.2"
+  },
+  "scripts": {
+    "dev": "live-server app",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  }
+}

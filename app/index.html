@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Testiranje u JavaScriptu</title>
+	<style>
+		body {
+			height: 100vh;
+			display: grid;
+			place-content: center;
+			font-family: sans-serif;
+		}
+
+		input {
+			display: block;
+			margin-top: 1rem;
+		}
+
+		.message {
+			margin-top: 0.5rem;
+		}
+
+		button {
+			margin-top: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<label>
+				<span>Lozinka</span><br>
+				<input type="password">
+		</label>
+		<div class="message"></div>
+		<button type="button">Provjeri</button>
+	</main>
+
+	<script type="module">
+		import { isPasswordValid } from './api.js'
+
+		const passwordField = document.querySelector('[type="password"]')
+		const btn = document.querySelector('button')
+		const msg = document.querySelector('.message')
+
+		btn.addEventListener('click', () => {
+			const password = passwordField.value
+			if (isPasswordValid(password)) {
+				msg.textContent = 'Lozinka je valjana!'
+				msg.style.color = 'green'
+			} else {
+				msg.textContent = 'Lozinka nije valjana!'
+				msg.style.color = 'red'
+			}
+		})
+	</script>
+</body>
+</html>
